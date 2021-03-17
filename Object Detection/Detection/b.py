@@ -1,0 +1,43 @@
+# import the opencv library
+import cv2
+
+# define a video capture object
+vid = cv2.VideoCapture(0)
+stop_data = cv2.CascadeClassifier('stop_data.xml')
+chair = cv2.CascadeClassifier('chair.xml')
+
+while (True):
+    ret, frame = vid.read()
+    found = stop_data.detectMultiScale(frame, minSize=(20, 20))
+    f = chair_data.detectMultiScale(frame, minSize=(20, 20))
+    for (x, y, width, height) in found:
+
+        # every recognized sign
+        cv2.rectangle(frame, (x, y),
+                      (x + height, y + width),
+                      (0, 255, 0), 5)
+        cv2.putText(frame, 'stop', (80, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 255), 2, cv2.LINE_AA)
+
+    for (x, y, width, height) in f:
+        cv2.rectangle(frame, (x, y),
+                    (x + height, y + width),
+                    (0, 255, 0), 5)
+        cv2.putText(frame, 'chair', (80, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 255), 2, cv2.LINE_AA)
+
+
+    # Display the resulting frame
+    cv2.imshow('frame', frame)
+
+    # the 'q' button is set as the
+    # quitting button you may use any
+    # desired button of your choice
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# After the loop release the cap object
+vid.release()
+# Destroy all the windows
+cv2.destroyAllWindows()
+
+
+
