@@ -20,8 +20,8 @@ while (True):
         cv2.rectangle(frame, (x, y),
                       (x + height, y + width),
                       (0, 255, 0), 5)
-        cv2.putText(frame, 'stop signal board', (80, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 255), 2, cv2.LINE_AA)
-
+        cv2.putText(frame,'stop signal board', (80, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 255), 2, cv2.LINE_AA)
+        print('\n')
     for (x, y, width, height) in foundfdata:
 
         # every recognized sign
@@ -36,11 +36,10 @@ while (True):
         cv2.rectangle(frame, (x, y),
                       (x + height, y + width),
                       (0, 255, 0), 5)
-        cv2.putText(frame, '        wallclock', (80, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 255), 2, cv2.LINE_AA)
+        cv2.putText(frame,'                     wallclock', (80, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 255), 2, cv2.LINE_AA)
 
     # Display the resulting frame
     cv2.imshow('frame', frame)
-
     # the 'q' button is set as the
     # quitting button you may use any
     # desired button of your choice
